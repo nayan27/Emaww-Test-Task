@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+    test-task-redis:
+        image: redis
+        expose:
+            - 6379
+    test-task-exporter:
+        build: .
+        entrypoint: ['node', 'index.js', 'config.xml']
+        stdin_open: true
+        tty: true
+        volumes:
+            - .:/srv/app
+        environment:
+            - REDIS_HOST=test-task-redis
+        links:
+          - test-task-redis

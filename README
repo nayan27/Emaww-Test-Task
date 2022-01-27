@@ -1,0 +1,13 @@
+This submission project assumes you have Docker installed on your machine.
+
+I will admit i hadn't worked with docker for a while so setting things up took some time.
+
+I am not sure i understood what you meant by "Run it with the command export.sh -v /path/to/xml
+
+I simply created a docker-compose project which will run a redis container and a simple javascript application which reads the local config.xml file and inserts the keys in the redis instance.
+This project could be way better as you currently can't provide an external config file. I also haven't created any unit tests.
+
+Granted more time, a more complete solution would be elaborate.
+
+Simply run the following command to start containers and execute the application.
+docker-compose up --force-recreate --build -d
